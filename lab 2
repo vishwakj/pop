@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	float a,b,c,root1,root2,real,imag,d;
+	printf("\nEnter the coefficients of the quadratic equation\n");
+	scanf("%f %f %f",&a,&b,&c);
+	if(a!=0)	
+	{
+		//calculating the discriminant,d using d^2-4ac
+		d=b*b-4*a*c;
+		printf("\nThe value of Discriminant(d) is %f",d);
+		//computing the roots
+		if(d==0)
+		{
+			printf("\nThe roots are real and equal");
+			root1=-b/(2*a);
+			root2=root1;
+			printf("\nThe 2 roots are %.2f and %.2f",root1,root2);
+		}
+		else if(d>0)
+		{
+			printf("\nThe roots are real and different");
+			root1= (-b+ sqrt(d))/(2*a);
+			root2= (-b-sqrt(d))/(2*a);
+			printf("\nThe 2 roots are %.2f and %.2f",root1,root2);
+		}	
+		else
+		{
+			printf("\nThe roots are imaginary");
+			//discriminant,d is negative
+			real=-b/2*a;
+			imag=sqrt(fabs(d))/(2*a);
+			printf("\nThe root1 is %.2f+%.2fi",real,imag);
+			printf("\nThe root2 is %.2f-%.2fi",real,imag);
+		}
+	}
+	else
+	{
+		printf("\nInvalid coefficient..roots cannot be computed");
+	}
+}
