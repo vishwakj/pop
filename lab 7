@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int a[30][30],b[30][30],c[30][30],m,n,p,q,i,j,k;
+	//Read the number of rows and columns for first matrix
+	printf("\nEnter the order of first matrix:\n");
+	scanf("%d%d", &m,&n);
+	//Read the number of rows and columns for second matrix
+	printf("\nEnter the order of 2nd matrix:\n");
+	scanf("%d%d",&p,&q);
+	//Validate the rules for matrix multiplication
+	if(n!=p)
+	{
+		printf("\nMatrix multiplication is not possible\n");
+		printf("\nThe number of columns in the 1st matrix must be equal to number ofrows in the 2nd\n");
+		exit(0);
+	}
+	//Read elements for the first array
+	printf("\nEnter %d*%d elements for first matrix:\n", m,n);
+	for (i = 0; i < m; i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			scanf("%d", &a[i][j]);
+		}
+	}
+	//Read elements for the second array
+	printf("\nEnter %d*%d elements for second matrix:\n", p,q);
+	for (i=0;i<p;i++)
+	{
+		for(j=0;j<q;j++)
+		{
+			scanf("%d", &b[i][j]);
+		}
+	}
+	//Multiplying 2 matrices
+	for (i = 0; i <m ; i++)
+	{
+		for(j=0;j<q;j++)
+		{
+			c[i][j]=0;
+			for(k=0;k<n;k++)
+			{
+				c[i][j]=c[i][j]+a[i][k]*b[k][j];
+			}
+		}
+	}
+	//Display the first matrix
+	printf("\nThe first matrix is:\n");
+	for (i = 0; i < m; i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%d\t", a[i][j]);
+		}
+		printf("\n");
+	}
+	//Display the second matrix
+	printf("\nThe second matrix is:\n");
+	for (i = 0; i < p; i++)
+	{
+		printf("\n");
+		for(j=0;j<q;j++)
+		{
+			printf("%d\t", b[i][j]);
+		}
+	}
+	//Display the result matrix
+	printf("\nThe product of two matrices is:\n");
+	for (i=0;i<m;i++)
+	{
+		printf("\n");
+		for(j=0;j<q;j++)
+		{
+			printf("%d\t",c[i][j]);
+		}
+	}
+}
