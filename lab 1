@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main()
+{
+	float n1,n2,result;
+	int rem;
+	char operators;
+
+	printf("\nChoose one of the operators (+,-,*,/,%%)\n");
+	scanf("%c",&operators);
+	fflush(stdin);
+	printf("\nEnter the value of operands\n");
+	scanf("%f %f",&n1,&n2);
+	switch(operators)
+	{
+		case '+':
+			result=n1+n2;
+			printf("\n%f + %f = %f",n1,n2,result);
+		break;
+		
+		case '-':
+			result=n1-n2;
+			printf("\n%f - %f = %f",n1,n2,result);
+		break;
+		
+		case '*':
+			result=n1*n2;
+			printf("\n%f * %f = %f",n1,n2,result);
+		break;
+		
+		case '/':
+			if(n2==0)
+			{
+				printf("\nDenominator cannot be zero\n");
+			}
+			else
+			{
+				result=n1/n2;
+			    printf("\n%f / %f = %f",n1,n2,result);
+			}
+		break;
+		
+		case '%':
+		    rem=(int)n1%(int)n2;
+			printf("\n%d \%\% %d = %d",(int)n1,(int)n2,rem);
+		break;	
+		
+		default:
+			printf("\nInvalid operators");			
+	}
+}
